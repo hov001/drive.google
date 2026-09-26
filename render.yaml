@@ -1,0 +1,13 @@
+services:
+  - type: web
+    name: phishing-awareness-lab
+    runtime: python
+    plan: free
+    buildCommand: true
+    startCommand: python3 app.py
+    healthCheckPath: /healthz
+    envVars:
+      - key: TEACHER_PASSWORD
+        sync: false
+      - key: COOKIE_SECRET
+        generateValue: true
